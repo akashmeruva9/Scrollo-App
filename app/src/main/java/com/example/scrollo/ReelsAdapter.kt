@@ -22,7 +22,7 @@ class reelsadapter( var listener: ReelsFragment, val items: ArrayList<Reels> = A
     override fun onBindViewHolder(holder: reelviewholder, position: Int) {
 
         var issaved = false
-        holder.videoview.setVideoURI(items[position].url.toUri())
+        holder.videoview.setVideoURI(items[position].url)
         holder.title.text = items[position].title
         holder.description.text = items[position].Description
 
@@ -48,7 +48,7 @@ class reelsadapter( var listener: ReelsFragment, val items: ArrayList<Reels> = A
         })
 
         holder.sharebtn.setOnClickListener {
-            listener.shareReel(items[position].url)
+            listener.shareReel(items[position].url.toString())
         }
     }
 
