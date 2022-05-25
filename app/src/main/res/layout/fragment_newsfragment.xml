@@ -38,160 +38,68 @@
                 android:textSize="25sp"
                 android:textStyle="" />
         </LinearLayout>
-    <HorizontalScrollView
-        android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/black"
-        android:layout_marginTop="5dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/kjl">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="center_vertical"
+        <RelativeLayout
+            android:id="@+id/categoriesll"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/kjl"
             android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/searchbutton"
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/search" />
+            <ImageView
+                android:id="@+id/categoryimage"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+               />
 
-                <Button
-                    android:id="@+id/world"
-                    android:layout_width="90dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/rounded1"
-                    android:text="world"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                     />
-
-                <Button
-                    android:id="@+id/general"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/rounded1"
-                    android:text="general"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/business"
-                    android:layout_width="120dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/rounded1"
-                    android:text="business"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/health"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/rounded1"
-                    android:text="health"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-                <Button
-                    android:id="@+id/entertainment"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/rounded1"
-                    android:text="entertainment"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/science"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/rounded1"
-                    android:text="science"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/sports"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/rounded1"
-                    android:text="sports"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/technology"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/rounded1"
-                    android:text="technology"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
-            </LinearLayout>
-    </HorizontalScrollView>
-
-
-        <LinearLayout
-            android:id="@+id/searchbox"
-            android:layout_width= "0dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:orientation= 'horizontal'
-            android:background="@color/black"
-            android:visibility="invisible"
-            android:layout_marginLeft="50dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/kjl">
-
-
-            <EditText
-                android:id="@+id/searchtext"
-                android:layout_width="240dp"
-                android:layout_height="40dp"
-                android:background="@color/black"
-                android:layout_gravity="start"
-                android:hint="Enter.."
-                android:maxLength="20"
-                android:paddingStart="10dp"
-                android:textColor="@color/white"
-                android:textColorHint="#7E7C7C"
-                android:textSize="20sp"
-                />
-
-            <Button
-                android:id="@+id/evaluate"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:layout_gravity="end"
-                android:background="@color/black"
-                android:paddingRight="10dp"
-                android:text="Search"
+            <TextView
+                android:id="@+id/textcategory"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_toStartOf="@+id/categoriesimg"
+                android:layout_toEndOf="@+id/categoryimage"
+                android:gravity="center_vertical"
+                android:text="General News"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                />
+                android:textSize="20sp" />
 
-        </LinearLayout>
+            <LinearLayout
+                android:id="@+id/categoriesimg"
+                android:layout_width="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <Button
+                    android:id="@+id/categories"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/category"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp"
+                    android:text="Categories"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/newsrecyclerview"
@@ -200,11 +108,335 @@
         android:layout_marginTop="5dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:background="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scroll"
+        app:layout_constraintTop_toBottomOf="@id/categoriesll"
         app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/newsitem"
         />
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/categoryhodenview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categoriesll"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <RelativeLayout
+                android:id="@+id/searchbox"
+                android:layout_width= "match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:orientation= 'horizontal'
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <EditText
+                    android:id="@+id/searchtext"
+                    android:layout_width="0dp"
+                    android:layout_height= "match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignRight="@+id/evaluate"
+                    android:layout_marginRight="85dp"
+                    android:background="@color/black"
+                    android:hint="Search news...."
+                    android:maxLength="20"
+                    android:paddingStart="10dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="#7E7C7C"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/evaluate"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:background="@color/black"
+                    android:paddingRight="10dp"
+                    android:text="Search"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/general12"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded2"
+                app:layout_constraintTop_toBottomOf="@id/searchbox"
+                app:layout_constraintLeft_toLeftOf= "parent"
+                >
+                <Button
+                    android:id="@+id/general"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/expand"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:text="General"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/world12"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded2"
+                app:layout_constraintTop_toBottomOf="@id/searchbox"
+                app:layout_constraintLeft_toRightOf="@+id/general12"
+                >
+                <Button
+                    android:id="@+id/world"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/earth"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:text="World"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/business12"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded2"
+                app:layout_constraintTop_toBottomOf="@id/searchbox"
+                app:layout_constraintLeft_toRightOf="@+id/world12"
+                >
+
+                <Button
+                    android:id="@+id/business"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/growth" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:text="Business"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/health12"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded2"
+                app:layout_constraintTop_toBottomOf="@id/general12"
+                app:layout_constraintLeft_toLeftOf= "parent"
+                >
+                <Button
+                    android:id="@+id/health"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/healthcare"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:text="Health"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/entertainment12"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded2"
+                app:layout_constraintTop_toBottomOf="@id/world12"
+                app:layout_constraintLeft_toRightOf="@+id/health12"
+                >
+                <Button
+                    android:id="@+id/entertainment"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/popcorn"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:text="Entertainment"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/science12"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded2"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/business12"
+                app:layout_constraintLeft_toRightOf="@+id/entertainment12"
+                >
+
+                <Button
+                    android:id="@+id/science"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/chemistry" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:text="Science"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/technology12"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded2"
+                app:layout_constraintTop_toBottomOf="@id/health12"
+                app:layout_constraintLeft_toLeftOf="parent"
+                >
+
+                <Button
+                    android:id="@+id/technology"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/technology"
+                    android:gravity="center_vertical" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:text="Technology"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/sports12"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded2"
+                app:layout_constraintTop_toBottomOf="@id/entertainment12"
+                app:layout_constraintLeft_toRightOf="@+id/technology12"
+                >
+            <Button
+                android:id="@+id/sports"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="10dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/sports"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_alignParentBottom="true"
+                android:text="Sports"
+                android:gravity="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                />
+            </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

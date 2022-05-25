@@ -32,6 +32,7 @@ class Newsadapter(private val listener: newsfragment): RecyclerView.Adapter<News
         val currentItem = items[position]
         holder.titleView.text = currentItem.title
         holder.author.text = currentItem.author
+        holder.timetext.text = currentItem.Time.substringBefore("T")
         Glide.with(holder.itemView.context).load(currentItem.imageUrl).into(holder.image)
 
         holder.sharebutton.setOnClickListener {
@@ -55,6 +56,7 @@ class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val image: ImageView = itemView.findViewById(R.id.newsimage)
     val author: TextView = itemView.findViewById(R.id.newsdescription)
     val sharebutton : Button = itemView.findViewById(R.id.newssharebutton)
+    var timetext = itemView.findViewById<TextView>(R.id.newstime)
 }
 
 interface NewsItemClicked {

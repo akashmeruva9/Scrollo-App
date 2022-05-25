@@ -3,14 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/projects/scrollo/app/src/main/res/drawable-v24/rounded1.xml" value="0.2555" />
+        <entry key="..\:/projects/scrollo/app/src/main/res/drawable-v24/rounded2.xml" value="0.2555" />
         <entry key="..\:/projects/scrollo/app/src/main/res/layout/activity_main.xml" value="0.24635416666666668" />
         <entry key="..\:/projects/scrollo/app/src/main/res/layout/fragment_memefragment.xml" value="0.24635416666666668" />
-        <entry key="..\:/projects/scrollo/app/src/main/res/layout/fragment_newsfragment.xml" value="0.24635416666666668" />
+        <entry key="..\:/projects/scrollo/app/src/main/res/layout/fragment_newsfragment.xml" value="0.264" />
         <entry key="..\:/projects/scrollo/app/src/main/res/layout/fragment_reels.xml" value="0.24635416666666668" />
         <entry key="..\:/projects/scrollo/app/src/main/res/layout/fragment_savedfragment.xml" value="0.152" />
         <entry key="..\:/projects/scrollo/app/src/main/res/layout/memeitem.xml" value="0.21052631578947367" />
         <entry key="..\:/projects/scrollo/app/src/main/res/layout/memelayout.xml" value="0.24635416666666668" />
-        <entry key="..\:/projects/scrollo/app/src/main/res/layout/newsitem.xml" value="0.24635416666666668" />
+        <entry key="..\:/projects/scrollo/app/src/main/res/layout/newsitem.xml" value="0.264" />
         <entry key="..\:/projects/scrollo/app/src/main/res/layout/reelitem.xml" value="0.24635416666666668" />
         <entry key="..\:/projects/scrollo/app/src/main/res/layout/saveditem.xml" value="0.21052631578947367" />
         <entry key="..\:/projects/scrollo/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />

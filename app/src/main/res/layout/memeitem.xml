@@ -1,80 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:background="@drawable/rounded2"
-    android:padding="5dp">
+    android:layout_marginBottom="40dp"
+>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/cv1"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:cardCornerRadius="10dp"
+    android:padding="5dp"
+    >
 
 
-        <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#292929">
+
+        <RelativeLayout
             android:id="@+id/memelinearlayout1"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:layout_alignParentTop="true"
-            android:layout_gravity="top"
-            android:layout_marginTop="5dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
+            android:paddingRight="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/memetitle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background= "@color/black"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
                 android:gravity="bottom"
                 android:paddingLeft="10dp"
                 android:textColor="@color/white"
-                android:textSize="25sp" />
-        </LinearLayout>
+                android:textSize="20sp" />
 
-
+        </RelativeLayout>
 
         <ImageView
             android:id="@+id/memeimage"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/back"
-            android:scaleType="fitCenter"
-            app:layout_constraintTop_toBottomOf="@+id/memelinearlayout1"
+            android:scaleType="fitXY"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-
+            app:layout_constraintTop_toBottomOf="@+id/memelinearlayout1" />
 
         <RelativeLayout
             android:id="@+id/memelinearlayout2"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="@color/black"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingRight="10dp"
-            app:layout_constraintRight_toRightOf="parent"
+
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/memeimage">
 
             <TextView
                 android:id="@+id/memeDescription"
-                android:layout_width="200dp"
-                android:layout_height="match_parent"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:background="@color/black"
-                android:gravity="bottom"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
                 android:ellipsize="end"
+                android:gravity="bottom"
                 android:paddingLeft="10dp"
                 android:textColor="@color/white"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <Button
                 android:id="@+id/memedownloadbutton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="3dp"
                 android:layout_alignParentRight="true"
+                android:layout_marginTop="3dp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/downloadicon" />
 
@@ -88,6 +102,15 @@
                 android:background="@drawable/share" />
 
         </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
 
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="40dp"
+        android:background="#676767"
+        app:layout_constraintTop_toBottomOf="@id/cv1" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+

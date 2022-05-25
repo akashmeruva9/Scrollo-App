@@ -24,8 +24,6 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
     private lateinit var mAdapter: Newsadapter
     var url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=201256b3bb1a41689dd3627e24015b06"
     var click = false
-    lateinit var currentMemeUrl: String
-    lateinit var myadapter: Memeadapter
 
     @SuppressLint("InflateParams")
     override fun onCreateView(
@@ -44,6 +42,7 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
         fetchData()
         mAdapter = Newsadapter(this)
         newsrecyclerview.adapter = mAdapter
+        categoryimage.setImageResource(R.drawable.expand)
 
         refreshnews.setOnRefreshListener {
 
@@ -51,20 +50,11 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
             mAdapter = Newsadapter(this)
             newsrecyclerview.adapter = mAdapter
             refreshnews.isRefreshing = false
+            categoryhodenview.visibility = View.GONE
+            click = false
+
         }
 
-        searchbutton.setOnClickListener {
-
-            if (click == false) {
-                click = true
-            }else if (click == true )
-            {
-                searchbox.visibility = View.INVISIBLE
-                click = false
-            }
-
-            if (click == true) {
-                searchbox.visibility = View.VISIBLE
 
                 evaluate.setOnClickListener {
 
@@ -79,40 +69,73 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
                         fetchData()
                         mAdapter = Newsadapter(this)
                         newsrecyclerview.adapter = mAdapter
-                        searchbox.visibility = View.GONE
+
+                        categoryhodenview.visibility = View.GONE
+                        click = false
+                        categoryimage.setImageResource(R.drawable.search)
+                        textcategory.text = "News for $text"
                     }
+
 
                     url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=201256b3bb1a41689dd3627e24015b06"
                     click = false
                     searchtext.text = null
                 }
 
-            }
-        }
+        categories.setOnClickListener {
 
+            if(click == false ) {
+                categoryhodenview.visibility = View.VISIBLE
+                click = true
+            }else if( click == true )
+            {
+                categoryhodenview.visibility = View.GONE
+                click = false
+            }
+
+        }
         general.setOnClickListener {
-            url(general)
+            categoryimage.setImageResource(R.drawable.expand)
+            textcategory.text = "General News"
+            url("general")
         }
         world.setOnClickListener {
-            url(world)
+
+            categoryimage.setImageResource(R.drawable.earth)
+            textcategory.text = "World News"
+            url("world")
         }
         business.setOnClickListener {
-            url(business)
+
+            categoryimage.setImageResource(R.drawable.growth)
+            textcategory.text = "Business News"
+            url("business")
         }
         health.setOnClickListener {
-            url(health)
+
+            categoryimage.setImageResource(R.drawable.healthcare)
+            textcategory.text = "Health News"
+            url("health")
         }
         entertainment.setOnClickListener {
-            url(entertainment)
+            categoryimage.setImageResource(R.drawable.popcorn)
+            textcategory.text = "Entertainment News"
+            url("entertainment")
         }
         science.setOnClickListener {
-            url(science)
+            categoryimage.setImageResource(R.drawable.chemistry)
+            textcategory.text = "Science News"
+            url("science")
         }
         sports.setOnClickListener {
-            url(sports)
+            categoryimage.setImageResource(R.drawable.sports)
+            textcategory.text = "Sports News"
+            url("sports")
         }
         technology.setOnClickListener {
-            url(technology)
+            categoryimage.setImageResource(R.drawable.technology)
+            textcategory.text = "Technology News"
+            url("technology")
         }
     }
 
@@ -137,7 +160,9 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
                         newsJsonObject.getString("title"),
                         newsJsonObject.getString("author"),
                         newsJsonObject.getString("url"),
-                        newsJsonObject.getString("urlToImage")
+                        newsJsonObject.getString("urlToImage"),
+                        newsJsonObject.getString("publishedAt")
+
                     )
                     newsArray.add(news)
                 }
@@ -166,10 +191,11 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
         activity?.let { customTabsIntent.launchUrl(it, Uri.parse(item.url)) }
     }
 
-    fun url(view: View) {
+    fun url( text: String) {
 
+        categoryhodenview.visibility = View.GONE
+        click = false
 
-        val text: String = (view as Button).text as String
         if (text != "world") {
             url = "https://newsapi.org/v2/top-headlines?country=in&category=$text&apiKey=201256b3bb1a41689dd3627e24015b06"
         } else {
@@ -182,5 +208,4 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
         refreshnews.isRefreshing = false
 
     }
-
 }

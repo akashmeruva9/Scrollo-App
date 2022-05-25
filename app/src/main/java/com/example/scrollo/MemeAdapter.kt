@@ -28,7 +28,7 @@ class Memeadapter( private val listener:memefragment): RecyclerView.Adapter<Meme
     {
         var issaved = false
         val currentitem = items[position].url.toString()
-        holder.userid.text = items[position].title.toString()
+        holder.title.text = items[position].title
         holder.description.text = items[position].description.toString()
 
         Glide.with(holder.itemView.context).load(currentitem).into(holder.image)
@@ -61,10 +61,10 @@ class Memeadapter( private val listener:memefragment): RecyclerView.Adapter<Meme
 class Memeviewholder(itemView : View): RecyclerView.ViewHolder(itemView)
 {
     val image: ImageView = itemView.findViewById(R.id.memeimage)
-    val userid : TextView = itemView.findViewById(R.id.memetitle)
     val sharebutton : Button = itemView.findViewById(R.id.memesharebutton)
     val download : Button = itemView.findViewById(R.id.memedownloadbutton)
     val description : TextView = itemView.findViewById(R.id.memeDescription)
+    val title : TextView = itemView.findViewById(R.id.memetitle)
 }
 
 interface shareclick{
