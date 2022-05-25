@@ -42,8 +42,13 @@ This an app where the user can see News , Memes and Reels in a scrollable manner
                     <img src="https://user-images.githubusercontent.com/106223361/170295795-19e015cb-6f27-4bc4-96a3-80ac848612b3.jpg"   width="200">
                 </td>
             </tr>
-            
             <tr>
+                <td  style="border: 1px solid black ;">
+                    Category
+                </td>
+                <td  style="border: 1px solid black ;">
+                    <img src = "https://user-images.githubusercontent.com/106223361/170295795-19e015cb-6f27-4bc4-96a3-80ac848612b3.jpg"   width="200">
+                </td>
                 <td  style="border: 1px solid black ;">
                     Category
                 </td>
