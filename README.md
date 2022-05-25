@@ -39,7 +39,7 @@ This an app where the user can see News , Memes and Reels in a scrollable manner
                     Reels
                 </td>
                 <td  style="border: 1px solid black ;">
-                    <img src="https://user-images.githubusercontent.com/106223361/170295795-19e015cb-6f27-4bc4-96a3-80ac848612b3.jpg"   width="200">
+                    <img src="https://user-images.githubusercontent.com/106223361/170317420-bb010cb6-962e-462b-80bc-595f1749c50b.jpg"   width="200">
                 </td>
             </tr>
             <tr>
@@ -64,4 +64,3 @@ This an app where the user can see News , Memes and Reels in a scrollable manner
             </tr>
         </table>
         
-
