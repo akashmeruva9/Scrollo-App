@@ -47,10 +47,10 @@ This an app where the user can see News , Memes and Reels in a scrollable manner
                     Category
                 </td>
                 <td  style="border: 1px solid black ;">
-                    <img src = "https://user-images.githubusercontent.com/106223361/170295795-19e015cb-6f27-4bc4-96a3-80ac848612b3.jpg"   width="200">
+                    <img src = "https://user-images.githubusercontent.com/106223361/170317769-2783a0df-5061-4ed4-ab55-0e8f2aaf3289.jpg"   width="200">
                 </td>
                 <td  style="border: 1px solid black ;">
-                    Search News
+                    In-App full News
                 </td>
                 <td  style="border: 1px solid black ;">
                     <img src="https://user-images.githubusercontent.com/106223361/170295879-3aa9cd75-5336-4dfd-b4bc-2ad6678fe736.jpg"   width="200">
@@ -63,4 +63,5 @@ This an app where the user can see News , Memes and Reels in a scrollable manner
                 </td>
             </tr>
         </table>
+        
         
