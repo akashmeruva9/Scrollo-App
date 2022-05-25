@@ -7,8 +7,6 @@ This an app where the user can see News , Memes and Reels in a scrollable manner
 -  Parse complicated JSON.
 -  News Home page
 -  Live News
--  Can select news category
--  Live News
 -  Different categories of news like world , science , busines , etc..
 -  Find news with keyword
 -  Uses Google News Api.
