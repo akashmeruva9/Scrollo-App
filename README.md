@@ -1,7 +1,7 @@
 # Scrollo-App 
 This an app where the user can see News , Memes and Reels in a scrollable manner in one app.
 
-# feautres
+# Feautres
 
 -  Beautiful UI, Dark Theme
 -  Parse complicated JSON.
