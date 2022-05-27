@@ -61,7 +61,6 @@ class memefragment : Fragment(R.layout.fragment_memefragment)
                         loadmeme()
                     }
 
-                    Memerecyclerview.adapter = myadapter
                 }
             }
         })

@@ -171,8 +171,8 @@
 
             <RelativeLayout
                 android:id="@+id/general12"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
@@ -180,15 +180,17 @@
                 app:layout_constraintTop_toBottomOf="@id/searchbox"
                 app:layout_constraintLeft_toLeftOf= "parent"
                 >
+
                 <Button
                     android:id="@+id/general"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/expand"
-                    />
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/expand" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
@@ -203,8 +205,8 @@
 
             <RelativeLayout
                 android:id="@+id/world12"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
@@ -212,15 +214,17 @@
                 app:layout_constraintTop_toBottomOf="@id/searchbox"
                 app:layout_constraintLeft_toRightOf="@+id/general12"
                 >
+
                 <Button
                     android:id="@+id/world"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
-                    android:layout_margin="10dp"
-                    android:background="@drawable/earth"
-                    />
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/earth" />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
@@ -235,9 +239,10 @@
 
             <RelativeLayout
                 android:id="@+id/business12"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded2"
@@ -251,9 +256,8 @@
                     android:layout_height="80dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
-                    android:layout_margin="10dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/growth" />
@@ -271,8 +275,8 @@
 
             <RelativeLayout
                 android:id="@+id/health12"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
@@ -286,7 +290,9 @@
                     android:layout_height="80dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
                     android:background="@drawable/healthcare"
                     />
                 <TextView
@@ -303,8 +309,8 @@
 
             <RelativeLayout
                 android:id="@+id/entertainment12"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
@@ -318,7 +324,9 @@
                     android:layout_height="80dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="5dp"
                     android:background="@drawable/popcorn"
                     />
                 <TextView
@@ -335,9 +343,10 @@
 
             <RelativeLayout
                 android:id="@+id/science12"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical"
                 android:background="@drawable/rounded2"
                 android:layout_marginTop="10dp"
@@ -352,9 +361,8 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
                     android:background="@drawable/chemistry" />
                 <TextView
                     android:layout_width="match_parent"
@@ -370,8 +378,8 @@
 
             <RelativeLayout
                 android:id="@+id/technology12"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
@@ -386,7 +394,9 @@
                     android:layout_height="80dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentRight="true"
-                    android:layout_margin="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@drawable/technology"
                     android:gravity="center_vertical" />
                 <TextView
@@ -403,8 +413,8 @@
 
             <RelativeLayout
                 android:id="@+id/sports12"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
                 android:layout_marginLeft="10dp"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
@@ -418,7 +428,9 @@
                 android:layout_height="80dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="true"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center_vertical"
                 android:background="@drawable/sports"
                 />

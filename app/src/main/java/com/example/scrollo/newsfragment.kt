@@ -35,6 +35,7 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
         return v
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -51,6 +52,7 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
             newsrecyclerview.adapter = mAdapter
             refreshnews.isRefreshing = false
             categoryhodenview.visibility = View.GONE
+            newsrecyclerview.visibility = View.VISIBLE
             click = false
 
         }
@@ -71,13 +73,12 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
                         newsrecyclerview.adapter = mAdapter
 
                         categoryhodenview.visibility = View.GONE
+                        newsrecyclerview.visibility = View.VISIBLE
                         click = false
                         categoryimage.setImageResource(R.drawable.search)
                         textcategory.text = "News for $text"
                     }
 
-
-                    url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=201256b3bb1a41689dd3627e24015b06"
                     click = false
                     searchtext.text = null
                 }
@@ -86,10 +87,12 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
 
             if(click == false ) {
                 categoryhodenview.visibility = View.VISIBLE
+                newsrecyclerview.visibility = View.GONE
                 click = true
             }else if( click == true )
             {
                 categoryhodenview.visibility = View.GONE
+                newsrecyclerview.visibility = View.VISIBLE
                 click = false
             }
 
@@ -137,6 +140,7 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
             textcategory.text = "Technology News"
             url("technology")
         }
+
     }
 
     fun shareNews(view: String) {
@@ -194,6 +198,7 @@ class newsfragment : Fragment(R.layout.fragment_newsfragment) {
     fun url( text: String) {
 
         categoryhodenview.visibility = View.GONE
+        newsrecyclerview.visibility = View.VISIBLE
         click = false
 
         if (text != "world") {
