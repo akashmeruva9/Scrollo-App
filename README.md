@@ -65,7 +65,7 @@ This an app where the user can see News , Memes and Reels in a scrollable manner
         </table>
         
         
-        1. Declare a class Named Teacher. The class will have all the data members(First_Name, Last_Name,Emp_ ID, Dept_Name) as per your convenient.The class will have constructors. Write a function to read the values of the class variables. The values of the variable will be stored in a FILE (text file). The values will be stored in a structured format of your own choice.Further, read the content of the FILE and display the content in an ordered form (First Name, LastName).
+1. Declare a class Named Teacher. The class will have all the data members(First_Name, Last_Name,Emp_ ID, Dept_Name) as per your convenient.The class will have constructors. Write a function to read the values of the class variables. The values of the variable will be stored in a FILE (text file). The values will be stored in a structured format of your own choice.Further, read the content of the FILE and display the content in an ordered form (First Name, LastName).
 
 Concept Learning:
 1. FILE manipulation
@@ -79,13 +79,13 @@ Code:
 
 Teacher.java
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
+    import java.io.File;
+    import java.io.FileWriter;
+    import java.io.IOException;
+    import java.util.ArrayList;
+    import java.util.Scanner;
 
-public class Teacher {
+    public class Teacher {
     private String firstName;
     private String lastName;
     private String empId;
@@ -154,16 +154,15 @@ public class Teacher {
     public String toString() {
         return this.firstName + " " + this.lastName;
     }
-}
-
+    }
 __________________
 
 MainClass1.java 
 
-import java.io.IOException;
-import java.util.ArrayList;
+    import java.io.IOException;
+    import java.util.ArrayList;
 
-public class MainClass1{
+    public class MainClass1{
     public static void main(String[] args) throws IOException {
         // Create a Teacher object
         Teacher teacher = new Teacher("Sree", "V", "1234", "CSE");
@@ -179,7 +178,7 @@ public class MainClass1{
             System.out.println(t.toString());
         }
     }
-}
+    }
 
 
 
@@ -187,31 +186,31 @@ public class MainClass1{
 
 Code:
 
-class Student extends Thread {
+    class Student extends Thread {
     public void run() {
         synchronized (System.out) {
             System.out.println("Student is attending class.");
         }
     }
-}
+    }
 
-class Teacher extends Thread {
+    class Teacher extends Thread {
     public void run() {
         synchronized (System.out) {
             System.out.println("Teacher is giving an assignment.");
             
         }
     }
-}
+    }
 
-class Parent implements Runnable {
+    class Parent implements Runnable {
     public void run() {
         synchronized (System.out) {
             System.out.println("Parent is attending a parent-teacher conference.");
                   }
     }
-}
-class MainClass2{
+    }
+    class MainClass2{
     public static void main(String[] args) {
         Student o1 = new Student();
         Teacher o2 = new Teacher();
@@ -221,19 +220,19 @@ class MainClass2{
         o2.start();
         o3.run();
     }
-}
+    }
 
 3. Create two classes Named Student and Teacher with required data members. Assume that the information about the Student and Teacher is stored in a text file. Read n and m number of Student  and Teacher information from the File. Store the information in Array list of type Student and Teacher Array List<Student> and Array List<Teacher>. Print the information of Teacher who taught OOPS and Maths. Use Iterator and other functions of util in your program.
 
 
 Code:
+	
+    import java.util.ArrayList;
+    import java.util.Scanner;
+    import java.io.File;
+    import java.io.FileNotFoundException;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.io.File;
-import java.io.FileNotFoundException;
-
-class Student {
+    class Student {
     private String name;
     private int rollNo;
     private float cgpa;
@@ -250,7 +249,7 @@ class Student {
     
     }
 
-class Teacher {
+    class Teacher {
     private String name;
     private String subject;
     
@@ -259,12 +258,12 @@ class Teacher {
         this.subject = subject;
     }
     
-   public String toString() {
+    public String toString() {
         return "Teacher:["+name+" "+" "+subject+"]";
     }
     }
 
-public class MainClass3 {
+    public class MainClass3 {
     public static void main(String[] args) {
         ArrayList<Student> s = new ArrayList<Student>();
         ArrayList<Teacher> t = new ArrayList<Teacher>();
@@ -303,16 +302,16 @@ public class MainClass3 {
         }
 
       }
-}
+      }
 
 4. Watch any of the favorite movie of your choice (any language is fine, preferably English). Create a Text file to store at least 10 meaningful dialogs from the movie and store it in a text file. Process the file to remove the stop words (eg. the, is, was, .......) and create another file to have clean text (word).
 
 Code:
 
-import java.io.*;
-import java.util.*;
+    import java.io.*;
+    import java.util.*;
 
-public class MainClass4 {
+    public class MainClass4 {
     public static void main(String[] args) {
         // Set of common stop words
         Set<String> stopWords = new HashSet<>(Arrays.asList("a", "an", "the", "is", "was", "and", "or", "in", "of", "will"));
@@ -324,7 +323,7 @@ public class MainClass4 {
        
         try (BufferedReader reader = new BufferedReader(new FileReader(inputFileName));
              BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileName))) 
-{
+     {
             String line;
             while ((line = reader.readLine()) != null) {
                 // Split the line into words
@@ -340,19 +339,19 @@ public class MainClass4 {
 	System.out.println("cleaned_dialogs text file created successfully.");
 
         } 
-catch (IOException e) {
+     catch (IOException e) {
             e.printStackTrace();
         }
     }
-}
+    }
 
 5. Write a java program to create Hashtable to act as a dictionary for the word collection. The dictionary meaning of the words, including synonyms, etc., has to be displayed.
 
 Code:
 
-import java.util.Hashtable;
+     import java.util.Hashtable;
 
-public class MainClass5  {
+     public class MainClass5  {
     
     public static void main(String[] args) {
         
@@ -377,18 +376,18 @@ public class MainClass5  {
             System.out.println(word + ": " + dictionary.get(word));
         }
     }
-}
+    }
 
 6. Declare two classes Student and Teacher. The classes will have the data members and constructors as per your convenience. Write a JAVA program, (i) where the Teacher will enter the marks of all the students in the database. (ii) Once the marks are entered, the student can view the marks
 
 Code:
 
-import java.io.*;
-import java.util.Scanner;
+    import java.io.*;
+    import java.util.Scanner;
 
-class MainClass6 {
+    class MainClass6 {
     public static void main(String[] args) {
-try{
+    try{
 		File f1=new File("marks.txt");
 		Scanner scanner = new Scanner(f1);
         } 
@@ -433,7 +432,7 @@ try{
             e.printStackTrace();
         }
     }
-}
+    }
 
 
 
