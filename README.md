@@ -809,22 +809,45 @@ Average: 87
 ```
 #!/bin/bash
 
-# Command line arguments
+# Check if the correct number of arguments is provided
+if [ "$#" -ne 3 ]; then
+  echo "Usage: $0 input_file section n"
+  exit 1
+fi
+
 input_file=$1
-n=$2
-s=$3
+section=$2
+n=$3
 
-# Extract the required data from the input file
-data=$(grep "Semester-$s" "$input_file" | sort -t ',' -k 5 -rn | head -n "$n")
+# Filter the input file based on the section
+filtered_data=$(grep "Semester-$section" "$input_file")
 
-# Calculate average marks
-average=$(echo "$data" | awk -F ',' '{ total += $5 } END { printf "%.0f\n", total/NR }')
+# Sort the filtered data based on marks in descending order
+sorted_data=$(echo "$filtered_data" | sort -t ',' -k 5 -nr)
 
-# Print the average marks
-echo "Average: $average"
+# Calculate the average marks of the top 'n' students
+total_marks=0
+count=0
 
-# Print Roll number, Email id, and Marks of the top 'n' students
-echo "$data" | awk -F ',' '{ print $1 ", " $4 ", " $5 }'
+while IFS= read -r line; do
+  roll=$(echo "$line" | awk -F ',' '{print $1}')
+  email=$(echo "$line" | awk -F ',' '{print $4}')
+  marks=$(echo "$line" | awk -F ',' '{print $5}')
+  
+  echo "$roll, $email, $marks"
+  
+  total_marks=$((total_marks + marks))
+  count=$((count + 1))
+  
+  if [ "$count" -eq "$n" ]; then
+    break
+  fi
+done <<< "$sorted_data"
+
+# Calculate and print the average marks
+average_marks=$((total_marks / count))
+echo "Average: $average_marks"
+
 
 ```
 
