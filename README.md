@@ -68,6 +68,7 @@ This an app where the user can see News , Memes and Reels in a scrollable manner
 1. Write a script to find the greatest of three numbers (numbers passed as command line
 parameters).
 
+```
 echo "Enter Num1"
 read num1
 echo "Enter Num2"
@@ -84,9 +85,11 @@ then
 else
     echo $num3
 fi
+```
 
 2. Write a script to check whether the given no. is even/odd.
 
+```
 echo "Enter a number : "
 read n
 rem=$(( $n % 2 ))
@@ -96,9 +99,11 @@ echo "$n is even number"
 else
 echo "$n is odd number"
 fi
+```
 
 3. Write a script to calculate the average of n numbers.
 
+```
 echo "Enter Size(N)"
 read N
 
@@ -116,9 +121,11 @@ done
 avg=$(echo $s / $N | bc -l)
 
 echo $avg
+```
 
 4. Write a script to check whether the given number is prime or not.
 
+```
 #!/bin/bash
 
 read -p "Enter a number: " num
@@ -138,9 +145,11 @@ function is_prime {
 result=$(is_prime)
 
 echo "$result"
+```
 
 5. Write a script to check whether the given input is a number or a string.
 
+```
 echo "Enter input"
 read input
 
@@ -150,9 +159,11 @@ if [[ $input =~ ^[0-9]+$ ]]; then
 else
   echo "$input is a string."
 fi
+```
 
 6. Write a script to compute no. of characters and words in each line of given file.
 
+```
 echo Enter the filename
 read file
 c=`cat $file | wc -c`
@@ -161,9 +172,11 @@ l=`grep -c "." $file`
 echo Number of characters in $file is $c
 echo Number of words in $file is $w
 echo Number of lines in $file is $l
+```
 
 7. Write a script to print the Fibonacci series up to n terms.
 
+```
 echo "How many number of terms to be generated ?"
   read n
 function fib
@@ -185,9 +198,11 @@ function fib
 }
 r=`fib $n`
 echo "$r"
+```
 
 8. Write a script to calculate the factorial of a given number.
 
+```
 echo "Enter a number"
 read num
 
@@ -199,9 +214,11 @@ for((i=2;i<=num;i++))
 }
 
 echo $fact
+```
 
 9. Write a script to calculate the sum of digits of the given number.
 
+```
 echo "Enter a number"
 read num
 
@@ -215,9 +232,11 @@ do
 done
 
 echo $sum
+```
 
 10. Write a script to check whether the given string is a palindrome.
 
+```
 echo "Enter a String"
 read input
 reverse=""
@@ -233,10 +252,12 @@ then
 else
     echo "$input is not palindrome"
 fi
+```
 
 11. Write a shell script that accepts a string from the terminal and echo a suitable message if it
 doesn’t have at least 5 characters including the other symbols.
 
+```
 echo "Enter a string: "
 read input_string
 
@@ -247,20 +268,24 @@ if ((string_length < 5)); then
 else
     echo "The input string is valid"
 fi
+```
 
 12. Write a shell script to echo the string length of the given string as argument.
 
+```
 if [ -z "$1" ]; then
     echo "Please provide a string as an argument"
 else
     string_length=${#1}
     echo "The length of the string '$1' is $string_length"
 fi
+```
 
 13. Write a shell script that accepts two directory Names as arguments and deletes those files in
 the first directory which are similarly Named in the second directly. Note: Contents should also
 match inside the files.
 
+```
 if [ -z "$1" ] || [ -z "$2" ]; then
     echo "Please provide two directory names as arguments"
 else
@@ -276,10 +301,12 @@ else
         fi
     done
 fi
+```
 
 14. Write a shell script to display the processes running on the system for every 30 seconds, but
 only for 3 times.
 
+```
 #!/bin/bash
 
 count=0
@@ -293,9 +320,11 @@ do
         sleep 30
     fi
 done
+```
 
 15. Write a shell script that displays the last modification time of any file.
 
+```
 #!/bin/bash
 # Usage: ./modtime.sh filename
 
@@ -311,9 +340,11 @@ fi
 
 modtime=$(stat -c %y "$1")
 echo "Last modified: $modtime"
+```
 
 16. Write a shell script to check the spellings of any text document given as an argument.
 
+```
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
@@ -335,9 +366,11 @@ fi
 
 # Run aspell to check spelling
 aspell check $file
+```
 
 17. Write a shell script to encrypt any text file.
 
+```
 if [ $# -eq 0 ]
   then
     echo "No filename provided."
@@ -356,10 +389,12 @@ gpg --symmetric "$1"
 
 # Remove the original file
 rm "$1"
+```
 
 18. Combine the above commands in a shell script so that you have a small program for extracting
 a wordlist.
 
+```
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
@@ -385,10 +420,12 @@ salt=$(openssl rand -hex 8)
 openssl enc -aes-256-cbc -pass "pass:$passphrase" -S "$salt" -in "wordlist.txt" -out "wordlist.enc"
 
 echo "Wordlist extraction complete. The encrypted wordlist is wordlist.enc"
+```
 
 19. Write a shell script which reads the contents in a text file and removes all the blank spaces in
 them and redirects the output to a file.
 
+```
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
@@ -406,9 +443,11 @@ fi
 sed 's/ //g' "$file" > "${file}_no_spaces"
 
 echo "Blank spaces removed. The output file is ${file}_no_spaces"
+```
 
 20. Write a shell script that changes the Name of the files passed as arguments to lowercase.
 
+```
 #!/bin/bash
 
 if [ $# -eq 0 ]; then
@@ -428,9 +467,11 @@ for file in "$@"; do
 
   echo "Renamed $file to $new_name"
 done
+```
 
 21. Write a shell script to translate all the characters to lower case in a given text file.
 
+```
 #!/bin/bash
 
 # Check if file name is provided
@@ -451,10 +492,12 @@ fi
 tr '[:upper:]' '[:lower:]' < "$1" > "${1%.txt}_lowercase.txt"
 
 echo "Conversion complete!"
+```
 
 22. Write a shell script to combine any three text files into a single file (append them in the order
 as they appear in the arguments) and display the word count.
 
+```
 #!/bin/bash
 
 # Check if three file names are provided
@@ -479,10 +522,12 @@ word_count=$(wc -w < combined.txt)
 
 echo "Combination complete!"
 echo "The total number of words in the combined file is: $word_count"
+```
 
 23. Write a shell script that, given a file Name as the argument will write the even numbered line
 to a file with Name evenfile and odd numbered lines to a file called oddfile.
 
+```
 #!/bin/bash
 
 # Check if file name is provided
@@ -506,9 +551,11 @@ sed -n '1~2p' "$1" > evenfile
 sed -n '2~2p' "$1" > oddfile
 
 echo "Separation complete!"
+```
 
 24. Write a shell script which deletes all the even numbered lines in a text file.
 
+```
 #!/bin/bash
 
 # Check if file name is provided
@@ -535,10 +582,12 @@ sed -n '1~2!p' "$1" > "$tmpfile"
 mv "$tmpfile" "$1"
 
 echo "Deletion complete!
+```
 
 25. Write a script called hello which outputs the following: • your userName • the time and date •
 who is logged on • also output a line of asterices (*********) after each section.
 
+```
 #!/bin/bash
 
 # Output username and asterisks
@@ -553,9 +602,11 @@ echo "*********"
 echo "Currently logged-in users:"
 who
 echo "*********"
+```
 
 26. Write a script that will count the number of files in each of your subdirectories.
 
+```
 #!/bin/bash
 
 directory="/path/to/directory"
@@ -569,12 +620,13 @@ for subdir in "$directory"/*; do
         echo
     fi
 done
-
+```
 
 27. Write a shell script like a more command. It asks the user Name, the Name of the file on
 command prompt and displays only the 15 lines of the file at a time on the screen. Further, next
 15 lines will be displayed only when the user presses the enter key / any other key.
 
+```
 #!/bin/bash
 
 read -p "Enter your name: " name
@@ -608,10 +660,11 @@ while true; do
 done
 
 echo "Thank you, $name!"
-
+```
 
 28. Write a shell script that counts English language articles (a, an, the) in a given text file.
 
+```
 #!/bin/bash
 
 # Prompt the user for the file name
@@ -628,11 +681,12 @@ article_count=$(grep -owE 'a|an|the' "$file_name" | wc -l)
 
 # Display the result
 echo "Number of English articles in the file: $article_count"
-
+```
 
 29. Write the shell script which will replace each occurrence of character c with the characters chr
 in a string s. It should also display the number of replacements.
 
+```
 #!/bin/bash
 
 # Prompt the user for the string
@@ -653,6 +707,7 @@ replacement_count=$(( (${#s} - ${#new_s}) / ${#c} ))
 # Display the result
 echo "Modified string: $new_s"
 echo "Number of replacements: $replacement_count"
+```
 
 30. Write a shell program to concatenate to two strings given as input and display the resultant
 string along with its string length. Write a shell program to simulate a simple calculator. 90)
@@ -660,6 +715,7 @@ Write a shell program to count the following in a text file. • Number of vowel
 file. • Number of blank spaces. • Number of characters. • Number of symbols. • Number of
 lines
 
+```
 #!/bin/bash
 
 # Prompt the user for the first string
@@ -709,12 +765,12 @@ echo "Number of characters: $character_count"
 echo "Number of symbols: $symbol_count"
 echo "Number of lines: $line_count"
 
-
+```
 
 Write a shell script to get the student details [Name,Email id] of section A from the given input file named "student_details.txt". Redirect the output into an output file named "output.txt".
 Rename the shell script file as "Roll_student_details.sh" and upload it using below link
 
-
+```
 
 #!/bin/bash
 
@@ -727,7 +783,7 @@ if [ -s output.txt ]; then
 else
   echo "No students found in Semester-A"
 fi
-
+```
 
 
 Q1: Write a shell script to calculate the average marks of top 'n' students from the section 's'. Also print Roll number. Email id and Marks of those 'n' students. Give the input file containing student details, and values of 'n' and 's' as command line arguments. Name your shell script file as <apXXXXXXXXXXX_lab_exam.sh>. Here <XXXXXXXXXXX> represents your roll number. If your roll number is AP21110010081 then your shell script file name will be <AP21110010081_lab_exam.sh>
@@ -735,34 +791,22 @@ Q1: Write a shell script to calculate the average marks of top 'n' students from
 Example:
 
 Given input file: student_marks.txt
-
 There are five columns <Roll, Name, Semester, Email, Marks> separated by comma.
-
 2, Mohammad, Semester-B, mohammad@srmap.edu.in, 71
-
 8, KUMAR, Semester-C, kumar@srmap.edu.in, 29
-
 79, CHAGANTIPATI, Semester-B, aetesh@srmap.edu.in, 68 85, SAI, Semester-B, saiakash@srmap.edu.in, 76
-
 25, KAPA, Semester-B, akhilsai@srmap.edu.in, 95 49, HAASITHA, Semester-A, haasitha@srmap.edu.in, 50
-
 88, GOLLAPUDI, Semester-B, amish@srmap.edu.in, 90
-
 18, JAMMULA, Semester-A, jammula@srmap.edu.in, 21
-
 Output:
-
 Input: <./shell_script.sh input_file.txt s n> ./AP21110018881_lab_exam.sh student_marks.txt B 3
-
 Average: 87
-
 25, akhilsai@srmap.edu.in, 95
-
 88, amish@srmap.edu.in, 90
-
 85, saiakash@srmap.edu.in, 76
 	
 
+```
 #!/bin/bash
 
 # Command line arguments
@@ -782,6 +826,6 @@ echo "Average: $average"
 # Print Roll number, Email id, and Marks of the top 'n' students
 echo "$data" | awk -F ',' '{ print $1 ", " $4 ", " $5 }'
 
-
+```
 
         
