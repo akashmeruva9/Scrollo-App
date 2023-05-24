@@ -64,380 +64,724 @@ This an app where the user can see News , Memes and Reels in a scrollable manner
             </tr>
         </table>
         
-        
-1. Declare a class Named Teacher. The class will have all the data members(First_Name, Last_Name,Emp_ ID, Dept_Name) as per your convenient.The class will have constructors. Write a function to read the values of the class variables. The values of the variable will be stored in a FILE (text file). The values will be stored in a structured format of your own choice.Further, read the content of the FILE and display the content in an ordered form (First Name, LastName).
 
-Concept Learning:
-1. FILE manipulation
-2. Use try catch blocks
-3. Use multiple try catch block
-4. Finally statement
-Try to have your own Exception
+1. Write a script to find the greatest of three numbers (numbers passed as command line
+parameters).
+
+echo "Enter Num1"
+read num1
+echo "Enter Num2"
+read num2
+echo "Enter Num3"
+read num3
+
+if [ $num1 -gt $num2 ] && [ $num1 -gt $num3 ]
+then
+    echo $num1
+elif [ $num2 -gt $num1 ] && [ $num2 -gt $num3 ]
+then
+    echo $num2
+else
+    echo $num3
+fi
+
+2. Write a script to check whether the given no. is even/odd.
+
+echo "Enter a number : "
+read n
+rem=$(( $n % 2 ))
+if [ $rem -eq 0 ]
+then
+echo "$n is even number"
+else
+echo "$n is odd number"
+fi
+
+3. Write a script to calculate the average of n numbers.
+
+echo "Enter Size(N)"
+read N
+
+i=1
+s=0
+
+echo "Enter Numbers"
+while [ $i -le $N ]
+do
+  read num               #get number
+  s=$((s + num))     #sum+=num
+  i=$((i + 1))
+done
+
+avg=$(echo $s / $N | bc -l)
+
+echo $avg
+
+4. Write a script to check whether the given number is prime or not.
+
+#!/bin/bash
+
+read -p "Enter a number: " num
+
+function is_prime {
+  for ((i=2; i<=num/2; i++))
+  do
+    if [ $((num%i)) -eq 0 ]
+    then
+      echo "$num is not a prime number."
+      exit
+    fi
+  done
+  echo "$num is a prime number."
+}
+
+result=$(is_prime)
+
+echo "$result"
+
+5. Write a script to check whether the given input is a number or a string.
+
+echo "Enter input"
+read input
+
+# check if input is a number
+if [[ $input =~ ^[0-9]+$ ]]; then
+  echo "$input is a number."
+else
+  echo "$input is a string."
+fi
+
+6. Write a script to compute no. of characters and words in each line of given file.
+
+echo Enter the filename
+read file
+c=`cat $file | wc -c`
+w=`cat $file | wc -w`
+l=`grep -c "." $file`
+echo Number of characters in $file is $c
+echo Number of words in $file is $w
+echo Number of lines in $file is $l
+
+7. Write a script to print the Fibonacci series up to n terms.
+
+echo "How many number of terms to be generated ?"
+  read n
+function fib
+{
+  x=0
+  y=1
+  i=2
+  echo "Fibonacci Series up to $n terms :"
+  echo "$x"
+  echo "$y"
+  while [ $i -lt $n ]
+  do
+      i=`expr $i + 1 `
+      z=`expr $x + $y `
+      echo "$z"
+      x=$y
+      y=$z
+  done
+}
+r=`fib $n`
+echo "$r"
+
+8. Write a script to calculate the factorial of a given number.
+
+echo "Enter a number"
+read num
+
+fact=1
+
+for((i=2;i<=num;i++))
+{
+  fact=$((fact * i))  #fact = fact * i
+}
+
+echo $fact
+
+9. Write a script to calculate the sum of digits of the given number.
+
+echo "Enter a number"
+read num
+
+sum=0
+
+while [ $num -gt 0 ]
+do
+    mod=$((num % 10))    #It will split each digits
+    sum=$((sum + mod))   #Add each digit to sum
+    num=$((num / 10))    #divide num by 10.
+done
+
+echo $sum
+
+10. Write a script to check whether the given string is a palindrome.
+
+echo "Enter a String"
+read input
+reverse=""
+
+len=${#input}
+for (( i=$len-1; i>=0; i-- ))
+do 
+    reverse="$reverse${input:$i:1}"
+done
+if [ $input == $reverse ]
+then
+    echo "$input is palindrome"
+else
+    echo "$input is not palindrome"
+fi
+
+11. Write a shell script that accepts a string from the terminal and echo a suitable message if it
+doesn’t have at least 5 characters including the other symbols.
+
+echo "Enter a string: "
+read input_string
+
+string_length=${#input_string}
+
+if ((string_length < 5)); then
+    echo "The string should have at least 5 characters including other symbols"
+else
+    echo "The input string is valid"
+fi
+
+12. Write a shell script to echo the string length of the given string as argument.
+
+if [ -z "$1" ]; then
+    echo "Please provide a string as an argument"
+else
+    string_length=${#1}
+    echo "The length of the string '$1' is $string_length"
+fi
+
+13. Write a shell script that accepts two directory Names as arguments and deletes those files in
+the first directory which are similarly Named in the second directly. Note: Contents should also
+match inside the files.
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+    echo "Please provide two directory names as arguments"
+else
+    for file1 in "$1"/*
+    do
+        if [ -f "$file1" ]; then
+            filename1=$(basename "$file1")
+            file2="$2/$filename1"
+            if [ -f "$file2" ] && cmp -s "$file1" "$file2"; then
+                echo "Deleting file: $file1"
+                rm "$file1"
+            fi
+        fi
+    done
+fi
+
+14. Write a shell script to display the processes running on the system for every 30 seconds, but
+only for 3 times.
+
+#!/bin/bash
+
+count=0
+
+while [ $count -lt 3 ]
+do
+    echo "Processes running on the system:"
+    ps aux
+    count=$((count+1))
+    if [ $count -lt 3 ]; then
+        sleep 30
+    fi
+done
+
+15. Write a shell script that displays the last modification time of any file.
+
+#!/bin/bash
+# Usage: ./modtime.sh filename
+
+if [ -z "$1" ]; then
+  echo "Usage: ./modtime.sh filename"
+  exit 1
+fi
+
+if [ ! -e "$1" ]; then
+  echo "File not found: $1"
+  exit 1
+fi
+
+modtime=$(stat -c %y "$1")
+echo "Last modified: $modtime"
+
+16. Write a shell script to check the spellings of any text document given as an argument.
+
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  echo "Error: No arguments supplied. Please provide a file name."
+  exit 1
+fi
+
+# Check if aspell is installed
+if ! command -v aspell &> /dev/null; then
+    echo "aspell could not be found. Please install it first."
+    exit 1
+fi
+
+file=$1
+if [ ! -f $file ]; then
+  echo "Error: $file is not a valid file. Please provide a valid file name."
+  exit 1
+fi
+
+# Run aspell to check spelling
+aspell check $file
+
+17. Write a shell script to encrypt any text file.
+
+if [ $# -eq 0 ]
+  then
+    echo "No filename provided."
+    exit 1
+fi
+
+# Check that the file exists
+if [ ! -f "$1" ]
+  then
+    echo "File does not exist."
+    exit 1
+fi
+
+# Encrypt the file
+gpg --symmetric "$1"
+
+# Remove the original file
+rm "$1"
+
+18. Combine the above commands in a shell script so that you have a small program for extracting
+a wordlist.
+
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  echo "Error: No arguments supplied. Please provide a file name."
+  exit 1
+fi
+
+file=$1
+if [ ! -f $file ]; then
+  echo "Error: $file is not a valid file. Please provide a valid file name."
+  exit 1
+fi
+
+# Extract words from the text file using tr and sort
+tr -sc '[:alnum:]' '\n' < $file | sort -u > wordlist.txt
+
+# Check the spelling of the wordlist using aspell
+aspell check wordlist.txt
+
+# Encrypt the wordlist using OpenSSL
+read -s -p "Enter passphrase for encryption: " passphrase
+salt=$(openssl rand -hex 8)
+openssl enc -aes-256-cbc -pass "pass:$passphrase" -S "$salt" -in "wordlist.txt" -out "wordlist.enc"
+
+echo "Wordlist extraction complete. The encrypted wordlist is wordlist.enc"
+
+19. Write a shell script which reads the contents in a text file and removes all the blank spaces in
+them and redirects the output to a file.
+
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  echo "Error: No arguments supplied. Please provide a file name."
+  exit 1
+fi
+
+file=$1
+if [ ! -f $file ]; then
+  echo "Error: $file is not a valid file. Please provide a valid file name."
+  exit 1
+fi
+
+# Remove blank spaces from the text file and write the output to a new file
+sed 's/ //g' "$file" > "${file}_no_spaces"
+
+echo "Blank spaces removed. The output file is ${file}_no_spaces"
+
+20. Write a shell script that changes the Name of the files passed as arguments to lowercase.
+
+#!/bin/bash
+
+if [ $# -eq 0 ]; then
+  echo "Error: No arguments supplied. Please provide one or more file names."
+  exit 1
+fi
+
+for file in "$@"; do
+  if [ ! -f "$file" ]; then
+    echo "Error: $file is not a valid file. Skipping..."
+    continue
+  fi
+
+  # Convert the filename to lowercase using tr and mv
+  new_name=$(echo "$file" | tr '[:upper:]' '[:lower:]')
+  mv "$file" "$new_name"
+
+  echo "Renamed $file to $new_name"
+done
+
+21. Write a shell script to translate all the characters to lower case in a given text file.
+
+#!/bin/bash
+
+# Check if file name is provided
+if [ $# -eq 0 ]
+then
+    echo "Please provide the name of the file to convert to lowercase."
+    exit 1
+fi
+
+# Check if file exists
+if [ ! -f "$1" ]
+then
+    echo "File not found!"
+    exit 1
+fi
+
+# Convert all characters to lower case using tr command
+tr '[:upper:]' '[:lower:]' < "$1" > "${1%.txt}_lowercase.txt"
+
+echo "Conversion complete!"
+
+22. Write a shell script to combine any three text files into a single file (append them in the order
+as they appear in the arguments) and display the word count.
+
+#!/bin/bash
+
+# Check if three file names are provided
+if [ $# -ne 3 ]
+then
+    echo "Please provide the names of three text files to combine."
+    exit 1
+fi
+
+# Check if files exist
+if [ ! -f "$1" ] || [ ! -f "$2" ] || [ ! -f "$3" ]
+then
+    echo "One or more files not found!"
+    exit 1
+fi
+
+# Combine files into a single file
+cat "$1" "$2" "$3" > combined.txt
+
+# Count the number of words in the combined file
+word_count=$(wc -w < combined.txt)
+
+echo "Combination complete!"
+echo "The total number of words in the combined file is: $word_count"
+
+23. Write a shell script that, given a file Name as the argument will write the even numbered line
+to a file with Name evenfile and odd numbered lines to a file called oddfile.
+
+#!/bin/bash
+
+# Check if file name is provided
+if [ $# -eq 0 ]
+then
+    echo "Please provide the name of the file to separate."
+    exit 1
+fi
+
+# Check if file exists
+if [ ! -f "$1" ]
+then
+    echo "File not found!"
+    exit 1
+fi
+
+# Separate even numbered lines
+sed -n '1~2p' "$1" > evenfile
+
+# Separate odd numbered lines
+sed -n '2~2p' "$1" > oddfile
+
+echo "Separation complete!"
+
+24. Write a shell script which deletes all the even numbered lines in a text file.
+
+#!/bin/bash
+
+# Check if file name is provided
+if [ $# -eq 0 ]
+then
+    echo "Please provide the name of the file to process."
+    exit 1
+fi
+
+# Check if file exists
+if [ ! -f "$1" ]
+then
+    echo "File not found!"
+    exit 1
+fi
+
+# Create temporary file
+tmpfile=$(mktemp)
+
+# Copy odd numbered lines to temporary file
+sed -n '1~2!p' "$1" > "$tmpfile"
+
+# Overwrite original file with temporary file
+mv "$tmpfile" "$1"
+
+echo "Deletion complete!
+
+25. Write a script called hello which outputs the following: • your userName • the time and date •
+who is logged on • also output a line of asterices (*********) after each section.
+
+#!/bin/bash
+
+# Output username and asterisks
+echo "Your username is: $USER"
+echo "*********"
+
+# Output time and date and asterisks
+echo "The current time and date is: $(date)"
+echo "*********"
+
+# Output currently logged-in users and asterisks
+echo "Currently logged-in users:"
+who
+echo "*********"
+
+26. Write a script that will count the number of files in each of your subdirectories.
+
+#!/bin/bash
+
+directory="/path/to/directory"
+
+for subdir in "$directory"/*; do
+    if [ -d "$subdir" ]; then
+        file_count=$(find "$subdir" -type f | wc -l)
+        subdir_name=$(basename "$subdir")
+        echo "Subdirectory: $subdir_name"
+        echo "File count: $file_count"
+        echo
+    fi
+done
 
 
-Code:
+27. Write a shell script like a more command. It asks the user Name, the Name of the file on
+command prompt and displays only the 15 lines of the file at a time on the screen. Further, next
+15 lines will be displayed only when the user presses the enter key / any other key.
 
-Teacher.java
+#!/bin/bash
 
-    import java.io.File;
-    import java.io.FileWriter;
-    import java.io.IOException;
-    import java.util.ArrayList;
-    import java.util.Scanner;
+read -p "Enter your name: " name
+read -p "Enter the name of the file: " file_name
 
-    public class Teacher {
-    private String firstName;
-    private String lastName;
-    private String empId;
-    private String deptName;
+if [ ! -f "$file_name" ]; then
+    echo "File not found."
+    exit 1
+fi
 
-    public Teacher(String firstName, String lastName, String empId, String deptName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.empId = empId;
-        this.deptName = deptName;
-    }
+head -n 15 "$file_name"
 
-    public String getFirstName() {
-        return firstName;
-    }
+line_number=16
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+while true; do
+    read -rsn1 -p "Press Enter to continue or press any other key to exit..."
 
-    public String getLastName() {
-        return lastName;
-    }
+    if [ "$REPLY" == "" ]; then
+        tail -n +$line_number "$file_name" | head -n 15
+        line_number=$((line_number + 15))
+    else
+        echo
+        echo "Exiting..."
+        break
+    fi
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    if [ $line_number -gt $(wc -l < "$file_name") ]; then
+        echo "End of file reached."
+        break
+    fi
+done
 
-    public String getEmpId() {
-        return empId;
-    }
-
-    public void setEmpId(String empId) {
-        this.empId = empId;
-    }
-
-    public String getDeptName() {
-        return deptName;
-    }
-
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
-    }
-
-    public void saveToFile(String filename) throws IOException {
-        FileWriter writer = new FileWriter(filename);
-        writer.write(this.firstName + "," + this.lastName + "," + this.empId + "," + this.deptName);
-        writer.close();
-    }
-
-    public static ArrayList<Teacher> readFromFile(String filename) throws IOException {
-        ArrayList<Teacher> teachers = new ArrayList<>();
-        File file = new File(filename);
-        Scanner scanner = new Scanner(file);
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-            String[] parts = line.split(",");
-            Teacher teacher = new Teacher(parts[0], parts[1], parts[2], parts[3]);
-            teachers.add(teacher);
-        }
-        scanner.close();
-        return teachers;
-    }
-
-    
-    public String toString() {
-        return this.firstName + " " + this.lastName;
-    }
-    }
-__________________
-
-MainClass1.java 
-
-    import java.io.IOException;
-    import java.util.ArrayList;
-
-    public class MainClass1{
-    public static void main(String[] args) throws IOException {
-        // Create a Teacher object
-        Teacher teacher = new Teacher("Sree", "V", "1234", "CSE");
-
-        // Save the Teacher object to a file
-        teacher.saveToFile("teacher.txt");
-
-        // Read the Teacher object from the file
-        ArrayList<Teacher> teachers = Teacher.readFromFile("teacher.txt");
-
-        // Print the list of Teacher objects
-        for (Teacher t : teachers) {
-            System.out.println(t.toString());
-        }
-    }
-    }
+echo "Thank you, $name!"
 
 
+28. Write a shell script that counts English language articles (a, an, the) in a given text file.
 
-2. Create three classes Named Student, Teacher, Parents. Student and Teacher class inherits Thread class and Parent class implements Runnable interface. These three classes have run methods with statements. The task of the teacher class of the first assignment has to be synchronized. Similarly, the other two classes should have run methods with few valid statements under synchronized.
+#!/bin/bash
 
-Code:
+# Prompt the user for the file name
+read -p "Enter the name of the text file: " file_name
 
-    class Student extends Thread {
-    public void run() {
-        synchronized (System.out) {
-            System.out.println("Student is attending class.");
-        }
-    }
-    }
+# Check if the file exists
+if [ ! -f "$file_name" ]; then
+    echo "File not found."
+    exit 1
+fi
 
-    class Teacher extends Thread {
-    public void run() {
-        synchronized (System.out) {
-            System.out.println("Teacher is giving an assignment.");
-            
-        }
-    }
-    }
+# Count the occurrences of articles
+article_count=$(grep -owE 'a|an|the' "$file_name" | wc -l)
 
-    class Parent implements Runnable {
-    public void run() {
-        synchronized (System.out) {
-            System.out.println("Parent is attending a parent-teacher conference.");
-                  }
-    }
-    }
-    class MainClass2{
-    public static void main(String[] args) {
-        Student o1 = new Student();
-        Teacher o2 = new Teacher();
-        Parent o3 = new Parent();
-
-        o1.start();
-        o2.start();
-        o3.run();
-    }
-    }
-
-3. Create two classes Named Student and Teacher with required data members. Assume that the information about the Student and Teacher is stored in a text file. Read n and m number of Student  and Teacher information from the File. Store the information in Array list of type Student and Teacher Array List<Student> and Array List<Teacher>. Print the information of Teacher who taught OOPS and Maths. Use Iterator and other functions of util in your program.
+# Display the result
+echo "Number of English articles in the file: $article_count"
 
 
-Code:
+29. Write the shell script which will replace each occurrence of character c with the characters chr
+in a string s. It should also display the number of replacements.
+
+#!/bin/bash
+
+# Prompt the user for the string
+read -p "Enter the string: " s
+
+# Prompt the user for the character to replace
+read -p "Enter the character to replace: " c
+
+# Prompt the user for the replacement characters
+read -p "Enter the replacement characters: " chr
+
+# Perform the replacement
+new_s="${s//$c/$chr}"
+
+# Count the number of replacements
+replacement_count=$(( (${#s} - ${#new_s}) / ${#c} ))
+
+# Display the result
+echo "Modified string: $new_s"
+echo "Number of replacements: $replacement_count"
+
+30. Write a shell program to concatenate to two strings given as input and display the resultant
+string along with its string length. Write a shell program to simulate a simple calculator. 90)
+Write a shell program to count the following in a text file. • Number of vowels in a given text
+file. • Number of blank spaces. • Number of characters. • Number of symbols. • Number of
+lines
+
+#!/bin/bash
+
+# Prompt the user for the first string
+read -p "Enter the first string: " string1
+
+# Prompt the user for the second string
+read -p "Enter the second string: " string2
+
+# Concatenate the strings
+concatenated_string="$string1$string2"
+
+# Display the concatenated string and its length
+echo "Concatenated string: $concatenated_string"
+echo "Length of the string: ${#concatenated_string}"
+
+
+#!/bin/bash
+
+# Prompt the user for the text file
+read -p "Enter the name of the text file: " file_name
+
+# Check if the file exists
+if [ ! -f "$file_name" ]; then
+    echo "File not found."
+    exit 1
+fi
+
+# Count the number of vowels
+vowel_count=$(grep -io '[aeiou]' "$file_name" | wc -l)
+
+# Count the number of blank spaces
+space_count=$(grep -o ' ' "$file_name" | wc -l)
+
+# Count the number of characters (excluding newlines)
+character_count=$(grep -o '.' "$file_name" | grep -vc $'\n')
+
+# Count the number of symbols (non-alphanumeric characters)
+symbol_count=$(grep -o '[^[:alnum:][:space:]]' "$file_name" | wc -l)
+
+# Count the number of lines
+line_count=$(wc -l < "$file_name")
+
+# Display the results
+echo "Number of vowels: $vowel_count"
+echo "Number of blank spaces: $space_count"
+echo "Number of characters: $character_count"
+echo "Number of symbols: $symbol_count"
+echo "Number of lines: $line_count"
+
+
+
+Write a shell script to get the student details [Name,Email id] of section A from the given input file named "student_details.txt". Redirect the output into an output file named "output.txt".
+Rename the shell script file as "Roll_student_details.sh" and upload it using below link
+
+
+
+#!/bin/bash
+
+# Use awk to filter the input file based on Semester-A, and save the results to output.txt
+awk -F "," '$3 ~ /Semester-A/ {print $2 "," $4}' student_details.txt > output.txt
+
+# Check if the output file was created successfully
+if [ -s output.txt ]; then
+  echo "Semester-A student details saved to output.txt"
+else
+  echo "No students found in Semester-A"
+fi
+
+
+
+Q1: Write a shell script to calculate the average marks of top 'n' students from the section 's'. Also print Roll number. Email id and Marks of those 'n' students. Give the input file containing student details, and values of 'n' and 's' as command line arguments. Name your shell script file as <apXXXXXXXXXXX_lab_exam.sh>. Here <XXXXXXXXXXX> represents your roll number. If your roll number is AP21110010081 then your shell script file name will be <AP21110010081_lab_exam.sh>
+
+Example:
+
+Given input file: student_marks.txt
+
+There are five columns <Roll, Name, Semester, Email, Marks> separated by comma.
+
+2, Mohammad, Semester-B, mohammad@srmap.edu.in, 71
+
+8, KUMAR, Semester-C, kumar@srmap.edu.in, 29
+
+79, CHAGANTIPATI, Semester-B, aetesh@srmap.edu.in, 68 85, SAI, Semester-B, saiakash@srmap.edu.in, 76
+
+25, KAPA, Semester-B, akhilsai@srmap.edu.in, 95 49, HAASITHA, Semester-A, haasitha@srmap.edu.in, 50
+
+88, GOLLAPUDI, Semester-B, amish@srmap.edu.in, 90
+
+18, JAMMULA, Semester-A, jammula@srmap.edu.in, 21
+
+Output:
+
+Input: <./shell_script.sh input_file.txt s n> ./AP21110018881_lab_exam.sh student_marks.txt B 3
+
+Average: 87
+
+25, akhilsai@srmap.edu.in, 95
+
+88, amish@srmap.edu.in, 90
+
+85, saiakash@srmap.edu.in, 76
 	
-    import java.util.ArrayList;
-    import java.util.Scanner;
-    import java.io.File;
-    import java.io.FileNotFoundException;
 
-    class Student {
-    private String name;
-    private int rollNo;
-    private float cgpa;
-    
-    public Student(int rollNo, String name, float cgpa) {
-        this.name = name;
-        this.rollNo = rollNo;
-        this.cgpa = cgpa;
-    }
-    
-    public String toString() {
-        return "Student:["+rollNo+" "+name+" "+cgpa+"]";
-    }
-    
-    }
+#!/bin/bash
 
-    class Teacher {
-    private String name;
-    private String subject;
-    
-    public Teacher(String name, String subject) {
-        this.name = name;
-        this.subject = subject;
-    }
-    
-    public String toString() {
-        return "Teacher:["+name+" "+" "+subject+"]";
-    }
-    }
+# Command line arguments
+input_file=$1
+n=$2
+s=$3
 
-    public class MainClass3 {
-    public static void main(String[] args) {
-        ArrayList<Student> s = new ArrayList<Student>();
-        ArrayList<Teacher> t = new ArrayList<Teacher>();
-        try {
-            File file = new File("students_and_teachers.txt");
-            Scanner scanner = new Scanner(file);
-            
-           for(int i = 0; i < 4; i++) {
-                int rollNo = scanner.nextInt();
-	    String name = scanner.next();
-                float cgpa = scanner.nextFloat();
-                Student stu = new Student(rollNo,name,cgpa);
-                s.add(stu);
-            }
-            
-            for (int i = 0; i < 3; i++) {
-                String name = scanner.next();
-                String subject = scanner.next();
-                
-                Teacher teach = new Teacher(name, subject);
-                t.add(teach);
-            } 
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found.");
-        }
-        // Print the student and teacher lists
-        System.out.println("Students:");
-        for (Student s1 : s) {
-            System.out.println(s1);
-        }
+# Extract the required data from the input file
+data=$(grep "Semester-$s" "$input_file" | sort -t ',' -k 5 -rn | head -n "$n")
 
-        System.out.println("Teachers:");
-        for (Teacher t1 : t) {
-            System.out.println(t1);
-        }
+# Calculate average marks
+average=$(echo "$data" | awk -F ',' '{ total += $5 } END { printf "%.0f\n", total/NR }')
 
-      }
-      }
+# Print the average marks
+echo "Average: $average"
 
-4. Watch any of the favorite movie of your choice (any language is fine, preferably English). Create a Text file to store at least 10 meaningful dialogs from the movie and store it in a text file. Process the file to remove the stop words (eg. the, is, was, .......) and create another file to have clean text (word).
-
-Code:
-
-    import java.io.*;
-    import java.util.*;
-
-    public class MainClass4 {
-    public static void main(String[] args) {
-        // Set of common stop words
-        Set<String> stopWords = new HashSet<>(Arrays.asList("a", "an", "the", "is", "was", "and", "or", "in", "of", "will"));
-       
-        // Input file containing movie dialogs
-        String inputFileName = "movie_dialogs.txt";
-        // Output file to store cleaned text
-        String outputFileName = "cleaned_dialogs.txt";
-       
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFileName));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFileName))) 
-     {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                // Split the line into words
-                String[] words = line.split(" "); 
-                for (String word : words) {
-                    // Check if the word is a stop word
-                    if (!stopWords.contains(word.toLowerCase())) {
-                        writer.write(word + " ");
-                    }
-                }
-                writer.newLine();
-            }
-	System.out.println("cleaned_dialogs text file created successfully.");
-
-        } 
-     catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    }
-
-5. Write a java program to create Hashtable to act as a dictionary for the word collection. The dictionary meaning of the words, including synonyms, etc., has to be displayed.
-
-Code:
-
-     import java.util.Hashtable;
-
-     public class MainClass5  {
-    
-    public static void main(String[] args) {
-        
-        // Create a Hashtable to store the words and their meanings
-        Hashtable<String, String> dictionary = new Hashtable<>();
-        
-        // Add some words and their meanings to the dictionary
-        dictionary.put("apple", "a round fruit with red or green skin and a white inside");
-        dictionary.put("cloud", " a term used to describe a global network of servers, each with a unique function");
-        dictionary.put("car", "a vehicle with four wheels that runs on roads");
-        dictionary.put("computer", "an electronic device used for processing and storing data");
-        
-        // Add some synonyms for the words in the dictionary
-        dictionary.put("apple", dictionary.get("apple") + ", also known as a fruit");
-        dictionary.put("cloud", dictionary.get("cloud") + ", also called a virtual store");
-        dictionary.put("car", dictionary.get("car") + ", also known as an automobile or vehicle");
-        dictionary.put("computer", dictionary.get("computer") + ", also called a PC or a Mac");
-        
-        // Display the contents of the dictionary
-        System.out.println("Dictionary:");
-        for (String word : dictionary.keySet()) {
-            System.out.println(word + ": " + dictionary.get(word));
-        }
-    }
-    }
-
-6. Declare two classes Student and Teacher. The classes will have the data members and constructors as per your convenience. Write a JAVA program, (i) where the Teacher will enter the marks of all the students in the database. (ii) Once the marks are entered, the student can view the marks
-
-Code:
-
-    import java.io.*;
-    import java.util.Scanner;
-
-    class MainClass6 {
-    public static void main(String[] args) {
-    try{
-		File f1=new File("marks.txt");
-		Scanner scanner = new Scanner(f1);
-        } 
-	catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-
-        try {
-            // Create a FileReader object to read from the file
-            FileReader reader = new FileReader("marks.txt");
-
-            // Ask the student to view their marks
-            System.out.print("Enter your roll number to view the marks: ");
-	Scanner scanner = new Scanner(System.in);
-
-            int rollNo = scanner.nextInt();
-            boolean found = false;
-            BufferedReader bufferedReader = new BufferedReader(reader);
-            String line;
-            while ((line = bufferedReader.readLine()) != null) 
-	{
-                String[] tokens = line.split(" ");
-                int studentRollNo = Integer.parseInt(tokens[0]);
-                int studentMarks = Integer.parseInt(tokens[1]);
-                if (studentRollNo == rollNo) 
-	     {
-                    System.out.println("Marks of roll number " + rollNo + ": " + studentMarks);
-                    found = true;
-                    break;
-                }
-            }
-            if (!found) {
-                System.out.println("Student with roll number " + rollNo + " not found.");
-            }
-
-            // Close the FileReader object
-            reader.close();
-        } 
-	catch (IOException e) {
-            System.out.println("An error occurred while reading from the file.");
-            e.printStackTrace();
-        }
-    }
-    }
+# Print Roll number, Email id, and Marks of the top 'n' students
+echo "$data" | awk -F ',' '{ print $1 ", " $4 ", " $5 }'
 
 
 
-
-
-
-        
         
