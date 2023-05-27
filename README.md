@@ -79,7 +79,7 @@ Try to have your own Exception
 
 
 Code:
-
+```
 Teacher.java
 
 import java.io.File;
@@ -188,7 +188,7 @@ public class MainClass1{
 
 
 
-
+```
 
 
 Output:
@@ -218,7 +218,7 @@ Output:
 2. Create three classes Named Student, Teacher, Parents. Student and Teacher class inherits Thread class and Parent class implements Runnable interface. These three classes have run methods with statements. The task of the teacher class of the first assignment has to be synchronized. Similarly, the other two classes should have run methods with few valid statements under synchronized.
 
 Code:
-
+```
 class Student extends Thread {
     public void run() {
         synchronized (System.out) {
@@ -254,7 +254,7 @@ class MainClass2{
         o3.run();
     }
 }
-
+```
 Output:
 
 
@@ -293,7 +293,7 @@ Output:
 
 
 Code:
-
+```
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
@@ -371,7 +371,7 @@ public class MainClass3 {
       }
 }
 
-
+```
 
 Save the file as: students_and_teachers.txt
 
@@ -392,7 +392,7 @@ Output:
 4. Watch any of the favorite movie of your choice (any language is fine, preferably English). Create a Text file to store at least 10 meaningful dialogs from the movie and store it in a text file. Process the file to remove the stop words (eg. the, is, was, .......) and create another file to have clean text (word).
 
 Code:
-
+```
 import java.io.*;
 import java.util.*;
 
@@ -432,7 +432,7 @@ catch (IOException e) {
 
 Save the file as: movie_dialogs.txt
 
-
+```
 Output:
 
 
@@ -442,7 +442,7 @@ Output:
 5. Write a java program to create Hashtable to act as a dictionary for the word collection. The dictionary meaning of the words, including synonyms, etc., has to be displayed.
 
 Code:
-
+```
 import java.util.Hashtable;
 
 public class MainClass5  {
@@ -471,7 +471,7 @@ public class MainClass5  {
         }
     }
 }
-
+```
 Output:
 
 
@@ -507,7 +507,7 @@ Output:
 6. Write a JAVA program, (i) where the Teacher will save the marks of all the students in a file. (ii) Once the marks are entered, the student can view the marks
 
 Code:
-
+```
 import java.io.*;
 import java.util.Scanner;
 
@@ -559,7 +559,7 @@ try{
         }
     }
 }
-
+```
 
 Save marks file as: marks.txt
 
@@ -573,7 +573,7 @@ Output:
 7. 
 a) Create GUI for the above program to upload the dialog FILE, clean the FILE. 
 b) Create GUI it should take input from the user for invoking the dictionary for displaying dictionary meaning.
-
+```
 code:
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -664,7 +664,7 @@ STOP_WORDS.add("will");
     }
 }
 
-
+```
 Movie dialogs file: save as movie_dialogs
 
 
@@ -714,7 +714,7 @@ Output:
 
 
 Code:
-
+```
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -800,7 +800,7 @@ public class DictionaryGUI extends JFrame {
         });
     }
 }
-
+```
 Output:
 
 
@@ -826,7 +826,7 @@ Output:
 
 8. Declare a class Named Teacher. The class will have all the data members as per your convenient.The class will have constructors. Develop a GUI to read the values of the class variables from the keyboard. Use text field to read the values. Use button to store it in a file one by one. The values will be stored in a structured format of your own choice. 
 Teacher1.java
-
+```
 public class Teacher1 {
     private String rollNumber;
     private String name;
@@ -966,7 +966,7 @@ public class TeacherGUI extends JFrame {
 Output:
 
 
-
+```
 
 
 File: teacher_data.txt
@@ -976,7 +976,7 @@ File: teacher_data.txt
 9. Create two classes Named Student and Teacher with required data members. Read the information about the student and teacher using text fields. Use the checkbox to choose the option to feed either teacher information or student information. Store the information about the Student and Teacher in a text file.Read n and m number of Student and Teacher information from the File. Show in the GUI about a Teacher who taught two subjects to a section. Develop at least one of the applications (AWT problem) using the swing package.
 
 Teacher1.java
-
+```
 public class Teacher1 {
     private String rollNumber;
     private String name;
@@ -1145,7 +1145,7 @@ public class InformationGUI extends JFrame {
 
 
 
-
+```
 Output:
 
 
@@ -1185,7 +1185,7 @@ File: information.txt
 
 
 10. Create a Window based application using various controls to handle subject registration for exams. Have a List Box to display the subject of semesters. Have one more List box having subject codes. Have a combo box to select the Semester, which will change the list of course and code in the list boxes. Display the subject registered for the examination on  the right side of the window.
-
+```
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -1256,7 +1256,7 @@ public class SubjectRegistrationApp extends JFrame {
     }
 }
 
-
+```
 
 Output:
 
@@ -1293,7 +1293,7 @@ Output:
 11. Declare a class Named Teacher. The class will have all the data members as per your convenience. The class will have constructors. Develop a GUI to read the values of the class variables from the keyboard. Use a text field to read the values. Use the button to store it in a file one by one. The values will be stored in a structured format of your own choice. Have an option in the GUI to search the Name of the students by roll number and display the content in the test field. Develop at least one of the applications (AWT problem) using the swing package.
 
 Code:
-
+```
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -1444,7 +1444,7 @@ public class TeacherGUI1 extends JFrame {
 }
 Output:
 
-
+```
 
 
 
@@ -1472,7 +1472,7 @@ Output:
 12. Create a Window based application for displaying your photo album. Create a Frame and Canvas. Change the border, foreground and background colors of canvas and other controls. Have buttons to start the image show, pause the image show and end the image show. Explore the options to play background music.
 
 
-
+```
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -1633,7 +1633,7 @@ public class PhotoAlbumApp {
         });
     }
 }
-
+```
 
 
 
@@ -1657,7 +1657,7 @@ Make sure to place the background_music.wav file in the same directory as your J
 13. Create a Window application with a menu bar and menu. The frame will also have a text area with a scroll bar. In the menu, have File related options. Open a file and its content has to be displayed in the text area.
 
 Code:
-
+```
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -1747,7 +1747,7 @@ public class FileViewerApp extends JFrame {
 
 
 
-
+```
 
 
 
@@ -1797,7 +1797,7 @@ Output:
 14. Create a GUI using various controls: (i) to upload the marks of all the students presented in a marks.csv or marks.txt file into the database. (ii) to show the marks of the respective student after uploading the marks into the database. Note: Handle the exception, if the file is not present (or) if the marks are not uploaded in the database.
 
 Code:
-
+```
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -1989,7 +1989,7 @@ public class MarksUploadApp extends JFrame {
         });
     }
 }
-
+```
 
 
 
