@@ -75,7 +75,6 @@ class memefragment : Fragment(R.layout.fragment_memefragment)
     fun loadmeme() {
 
         val url = "https://meme-api.herokuapp.com/gimme"
-
         val jsonObjectRequest1 = JsonObjectRequest(
             Request.Method.GET, url, null,
             { response ->
