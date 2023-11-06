@@ -28,16 +28,10 @@ import java.util.concurrent.Executors
 class memefragment : Fragment(R.layout.fragment_memefragment)
 {
 
-    lateinit var currentMemeUrl: String
     lateinit var myadapter: Memeadapter
 
-
     @SuppressLint("InflateParams")
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val v = layoutInflater.inflate(R.layout.fragment_memefragment , null)
         return v }
 

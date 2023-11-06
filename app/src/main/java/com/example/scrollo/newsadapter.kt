@@ -38,7 +38,6 @@ class Newsadapter(private val listener: newsfragment): RecyclerView.Adapter<News
         holder.sharebutton.setOnClickListener {
             listener.shareNews(currentItem.url)
         }
-
     }
 
 
